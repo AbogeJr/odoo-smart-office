@@ -1,17 +1,10 @@
 <?xml version="1.0"?>
 <odoo>
-        <!-- Ofice Space Action for Kanban View -->
-    <record id="office_action_kanban" model="ir.actions.act_window">
-        <field name="name">Kanban View</field>
-        <field name="res_model">office.model</field>
-        <field name="view_mode">kanban,form</field>
-    </record>
-    
     <!-- Office Space Action for List View -->
     <record id="office_action_main_tree" model="ir.actions.act_window">
         <field name="name">Office Spaces</field>
         <field name="res_model">office.model</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,kanban,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
             No offices found. Let's create one!

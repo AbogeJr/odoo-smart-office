@@ -75,7 +75,7 @@
         <field name="name">office.model.kanban</field>
         <field name="model">office.model</field>
         <field name="arch" type="xml">
-            <kanban string="Office Space">
+            <kanban string="Office Space" quick-create="true">
             <field name="name" string="Space" />
             <field name="capacity"/>
             <field name="floor"/>
@@ -87,7 +87,7 @@
             <field name="daily_rate" />
             <templates>
                 <t t-name="kanban-box">
-                    <div class="oe_kanban_card">
+                    <div class="oe_kanban_global_click_edit">
                         <div class="oe_kanban_card_inner">
                             <div class="oe_kanban_card_header">
                                 <div class="oe_kanban_card_title">

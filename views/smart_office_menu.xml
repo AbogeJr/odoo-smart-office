@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
   <menuitem id="office_menu_root" name="Smart Office" action="office_action_main_tree">
-        <menuitem id="office_menu_kanban" sequence="3" name="Office Spcaes - Kanban" action="office_action_kanban"/>
-        <menuitem id="reservation_menu_list" name="Reservations - List" action="reservation_action_list"/>
-        <menuitem id="reservation_menu_calendar" name="Reservations - Calendar" action="reservation_action_calendar"/>
+        <menuitem id="reservation_menu_list" name="Reservations" action="reservation_action"/>
   </menuitem>
 </odoo>

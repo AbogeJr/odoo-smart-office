@@ -1,21 +1,10 @@
 <?xml version="1.0"?>
 <odoo>
     <!-- Reservation Action for List View -->
-    <record id="reservation_action_list" model="ir.actions.act_window">
+    <record id="reservation_action" model="ir.actions.act_window">
     <field name="name">Reservations</field>
     <field name="res_model">reservation.model</field>
-    <field name="view_mode">tree,form</field>
-    <field name="search_view_id" ref="reservation_search"/>
-    <field name="help" type="html">
-        <p class="oe_view_nocontent_create">Click on Create to add a new reservation.</p>
-    </field>
-    </record>
-    
-    <!-- Reservation Action for Calendar View -->
-    <record id="reservation_action_calendar" model="ir.actions.act_window">
-    <field name="name">Reservations - Calendar View</field>
-    <field name="res_model">reservation.model</field>
-    <field name="view_mode">calendar,form</field>
+    <field name="view_mode">tree,calendar,form</field>
     <field name="search_view_id" ref="reservation_search"/>
     <field name="help" type="html">
         <p class="oe_view_nocontent_create">Click on Create to add a new reservation.</p>
