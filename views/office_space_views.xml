@@ -100,8 +100,6 @@
                                 <div><strong>Desks: </strong><field name="desks"/></div>
                                 <div><strong>Computers: </strong><field name="computers"/></div>
                                 <div><strong>Chairs: </strong><field name="chairs"/></div>
-                                <div><strong>Telephones: </strong><field name="telephones"/></div>
-                                <div><strong>Booked: </strong><field name="booked"/></div>
                                 <div><strong>Daily Rate: </strong><field name="daily_rate"/></div>
                             </div>
                         </div>
