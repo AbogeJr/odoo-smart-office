@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="reservation_report_action" model="ir.actions.report">
+        <field name="name">Office Reservation</field>
+        <field name="model">office.model</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">office.office_reservation_report</field>
+        <field name="report_file">office_reservation_report</field>
+        <field name="print_report_name">'Reservation Report - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_office_model"/>
+        <field name="binding_type">report</field>
+  </record>
+</odoo>

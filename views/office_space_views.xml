@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Office Space Tree/List View -->
+    <record id="office_view_tree" model="ir.ui.view">
+        <field name="name">office.model.tree</field>
+        <field name="model">office.model</field>
+        <field name="arch" type="xml">
+            <tree string="Office Space">
+                <field name="name" string="Space" />
+                <field name="capacity"/>
+                <field name="floor"/>
+                <field name="desks"/>
+                <field name="computers"/>
+                <field name="chairs"/>
+                <field name="telephones"/>
+                <field name="booked"/>
+                <field name="daily_rate" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Office Form View -->
+    <record id="office_view_form" model="ir.ui.view">
+        <field name="name">office.model.form</field>
+        <field name="model">office.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1 class="mb16"><field name="name" placeholder="e.g. Office Space 1"/></h1>
+                        <h3><field name="description" placeholder="e.g. Elegant Office Space"/></h3>
+                    </div>
+                        <notebook>
+                            <page string="Office Space Details">
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="capacity"/>
+                                        <field name="floor"/>
+                                    </group>
+                                    <group colspan="2">
+                                        <field name="desks"/>
+                                        <field name="computers"/>
+                                        <field name="chairs"/>
+                                        <field name="telephones"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="booked"/>
+                                    <field name="daily_rate"/>
+                                </group>
+                            </page>
+                            <page string="Reservation Details">
+                                <group>
+                                    <field name="reservation_ids" string="" mode="tree">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="start_date"/>
+                                            <field name="end_date"/>
+                                            <field name="approved"/>
+                                            <field name="customer_id"/>
+                                            <field name="days"/>
+                                            <field name="cost"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<!-- Office Kanban View -->
+    <record id="office_kanban_view" model="ir.ui.view">
+        <field name="name">office.model.kanban</field>
+        <field name="model">office.model</field>
+        <field name="arch" type="xml">
+            <kanban string="Office Space">
+            <field name="name" string="Space" />
+            <field name="capacity"/>
+            <field name="floor"/>
+            <field name="desks"/>
+            <field name="computers"/>
+            <field name="chairs"/>
+            <field name="telephones"/>
+            <field name="booked"/>
+            <field name="daily_rate" />
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_card">
+                        <div class="oe_kanban_card_inner">
+                            <div class="oe_kanban_card_header">
+                                <div class="oe_kanban_card_title">
+                                    <h1><field name="name"/></h1>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_card_body">
+                                <div><strong>Capacity: </strong><field name="capacity"/></div>
+                                <div><strong>Floor: </strong><field name="floor"/></div>
+                                <div><strong>Desks: </strong><field name="desks"/></div>
+                                <div><strong>Computers: </strong><field name="computers"/></div>
+                                <div><strong>Chairs: </strong><field name="chairs"/></div>
+                                <div><strong>Telephones: </strong><field name="telephones"/></div>
+                                <div><strong>Booked: </strong><field name="booked"/></div>
+                                <div><strong>Daily Rate: </strong><field name="daily_rate"/></div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+        </field>
+    </record>
+
+   <!-- Office Space Search View -->
+    <record id="office_search" model="ir.ui.view">
+        <field name="name">office.model.search</field>
+        <field name="model">office.model</field>
+        <field name="arch" type="xml">
+            <search string="Office Space Search">
+                <field name="name" string="Name" />
+                <field name="floor"/>
+                <field name="capacity"/>
+                <field name="booked"/>
+
+                <filter string="Booked" name="booked" domain="[('booked', '=', True)]"/>
+                <filter string="Projector" name="projector" domain="[('projector', '=', True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Booked" name="booked" context="{'group_by':'booked', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

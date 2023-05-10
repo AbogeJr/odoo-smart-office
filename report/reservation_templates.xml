@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="office_reservation_report">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="office">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="underline">
+                            Reservation Report: <span t-field="office.name"/>
+                        </h2>
+                        <hr/>
+                        <h5>Office Space Details</h5>
+                        <div>
+                            <p>
+                                <strong>Description: </strong>
+                                <span t-field="office.description"/>
+                            </p>
+                            <p>
+                                <strong>Floor: </strong>
+                                <span t-field="office.floor"/>
+                            </p>
+                            <p>
+                                <strong>Daily Rate: </strong>
+                                <span t-field="office.daily_rate"/>
+                            </p>
+                        </div>
+                        <hr/>
+                        <h5>Ammenities</h5>
+                        <div>
+                            <p>
+                                Desks:
+                                <span t-field="office.desks"/>
+                            </p>
+                            <p>
+                                Chairs:
+                                <span t-field="office.chairs"/>
+                            </p>
+                            <p>
+                                Telephones:
+                                <span t-field="office.telephones"/>
+                            </p>
+                            <p>
+                                Computers:
+                                <span t-field="office.computers"/>
+                            </p>
+                          
+                        </div>
+                        <hr/>
+                        <table class="table">
+                        <h5>Reservation Details</h5>
+                            <thead>
+                                <tr>
+                                    <th>Reservation Name</th>
+                                    <th>Customer</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Duration (Days)</th>
+                                    <th>Revenue</th>
+                                    <th>Approved</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="reservations" t-value="office.mapped('reservation_ids')"/>
+                                <tr t-foreach="reservations" t-as="reservation">
+                                    <td>
+                                        <span t-field="reservation.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.customer_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.start_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.end_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.days"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.cost"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.approved"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+        </t>
+    </t>
+ </template>
+</odoo>
