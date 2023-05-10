@@ -22,8 +22,6 @@ class OfficeModel(models.Model):
     water_dispenser = fields.Boolean()
     air_conditioner = fields.Boolean()
     booked = fields.Boolean(default=False)
-    renter = fields.Many2one(comodel_name="res.users", string="Renter")
-    owner = fields.Many2one(comodel_name="res.users", string="Owner")
     daily_rate = fields.Float(string="Daily Rate")
     reservation_ids = fields.One2many(
         comodel_name="reservation.model",
