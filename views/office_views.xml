@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="menu_1" model="ir.actions.act_window">
+        <field name="name">Tree View</field>
+        <field name="res_model">office.model</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="menu_2" model="ir.actions.act_window">
+        <field name="name">Form View</field>
+        <field name="res_model">office.model</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <record id="menu_3" model="ir.actions.act_window">
+        <field name="name">Kanban View</field>
+        <field name="res_model">office.model</field>
+        <field name="view_mode">kanban</field>
+    </record>
+
+    <record id="menu_4_view" model="ir.ui.view">
+        <field name="name">office.model.tree</field>
+        <field name="model">office.model</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="menu_4" model="ir.actions.act_window">
+        <field name="name">Offices - Custom View</field>
+        <field name="res_model">office.model</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="menu_4_view"/>
+    </record>
+
+
+    <menuitem id="office_menu_root" name="Office Menu">
+        <menuitem id="office_menu_1" name="Tree View" action="menu_1" />
+        <menuitem id="office_menu_2" name="Form View" action="menu_2" />
+        <menuitem id="office_menu_3" name="Kanban View" action="menu_3" />
+        <menuitem id="office_menu_4" name="Custom View" action="menu_4" />
+    </menuitem>
+</odoo>
