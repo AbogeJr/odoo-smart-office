@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Building Action -->
+    <record id="building_action_main" model="ir.actions.act_window">
+        <field name="name">Buildings</field>
+        <field name="res_model">building.model</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            No buildings found. Let's create one!
+            </p>
+            <p>To get things done, use activities and status on Buildings.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
-  <menuitem id="office_menu_root" name="Smart Office" action="office_action_main_tree">
-        <menuitem id="reservation_menu_list" name="Reservations" action="reservation_action"/>
-  </menuitem>
+    <menuitem id="smart_office_menu_root" name="Smart Office" action="building_action_main"/>
+    <menuitem id="floor_menu" name="Floors" action="floor_action" parent="smart_office_menu_root"/>
+    <menuitem id="office_menu" name="Offices" action="office_action" parent="smart_office_menu_root"/>
+    <menuitem id="reservation_menu" name="Reservations" action="reservation_action" parent="smart_office_menu_root" />
 </odoo>

@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <!-- Floor Tree VIew -->
+    <record model="ir.ui.view" id="floor_list_view">
+      <field name="name">floor List</field>
+      <field name="model">floor.model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="building_id"/>
+          <!-- <field name="office_ids"/> -->
+          <field name="num_offices"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>

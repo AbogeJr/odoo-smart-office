@@ -1,11 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
-    <template id="office_reservation_report">
-    <t t-call="web.html_container">
-        <t t-foreach="docs" t-as="office">
-                <t t-call="web.external_layout">
-        <div class="page">
-        <h2>
+<templates id="template" xml:space="preserve">
+<t t-name="office_reservation_template">
+    <div class="page">
+        <h2 class="underline">
             Reservation Report: <span t-field="office.name"/>
         </h2>
         <hr/>
@@ -95,8 +91,5 @@
             <p class="text-end inline-block">Total Revenue: <t t-esc="totals" t-options='{"widget": "float", "precision": 2}'/></p>
         </div>
     </div>
-                </t>
-        </t>
-    </t>
- </template>
-</odoo>
+</t>
+</templates>

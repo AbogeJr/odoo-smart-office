@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="full_report_action" model="ir.actions.report">
+        <field name="name">Building Report</field>
+        <field name="model">building.model</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo-smart-office.office_reservation_report</field>
+        <field name="report_file">odoo-smart-office_reservation_report</field>
+        <field name="print_report_name">'Smart Office Reservation Report'</field>
+        <field name="binding_model_id" ref="model_building_model"/>
+        <field name="binding_type">report</field>
+  </record>
+</odoo>

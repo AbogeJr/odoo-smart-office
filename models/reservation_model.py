@@ -25,7 +25,11 @@ class ReservationModel(models.Model):
                     raise exceptions.ValidationError(
                         "Start date must be before end date"
                     )
+                if (
+                    reservation.start_date < fields.Date.today()
+                    or reservation.end_date < fields.Date.today()
+                ):
+                    raise exceptions.ValidationError("Date cannot be in the past")
                 days = (reservation.end_date - reservation.start_date).days
-                # days = diff.days
                 reservation.days = days
                 reservation.cost = reservation.office_id.daily_rate * days

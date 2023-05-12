@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- Building Tree VIew -->
+    <record model="ir.ui.view" id="building_list_view">
+      <field name="name">Building List</field>
+      <field name="model">building.model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="address"/>
+          <field name="num_floors" string="Floors"/>
+        </tree>
+      </field>
+    </record>
+    <!-- Building Form View -->
+     <record id="view_building_form" model="ir.ui.view">
+        <field name="name">building.form</field>
+        <field name="model">building.model</field>
+        <field name="arch" type="xml">
+            <form string="Building">
+                <group>
+                    <field name="name"/>
+                    <field name="address"/>
+                </group>
+                <notebook>
+                    <page string="Floors">
+                        <field name="floors" widget="many2many_tags"/>
+                    </page>
+                </notebook>
+                <group>
+                    <field name="num_floors"/>
+                </group>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>

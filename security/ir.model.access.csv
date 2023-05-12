@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 odoo-smart-office.access_reservation_model,access_reservation_model,odoo-smart-office.model_reservation_model,base.group_user,1,1,1,1
 odoo-smart-office.access_office_model,access_office_model,odoo-smart-office.model_office_model,base.group_user,1,1,1,1
+odoo-smart-office.access_floor_model,access_floor_model,odoo-smart-office.model_floor_model,base.group_user,1,1,1,1
+odoo-smart-office.access_building_model,access_building_model,odoo-smart-office.model_building_model,base.group_user,1,1,1,1

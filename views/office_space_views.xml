@@ -8,12 +8,12 @@
             <tree string="Office Space">
                 <field name="name" string="Space" />
                 <field name="capacity"/>
-                <field name="floor"/>
+                <field name="floor_id"/>
                 <field name="desks"/>
                 <field name="computers"/>
                 <field name="chairs"/>
                 <field name="telephones"/>
-                <field name="booked"/>
+                <field name="status"/>
                 <field name="daily_rate" />
             </tree>
         </field>
@@ -25,6 +25,10 @@
         <field name="model">office.model</field>
         <field name="arch" type="xml">
             <form>
+                <!-- <header>
+                    <button name="toggle_booked" string="Toggle Booked" type="object" class="oe_highlight"/>
+                    <button name="toggle_projector" string="Toggle Projector" type="object" class="oe_highlight"/>
+                </header> -->
                 <sheet>
                     <div class="oe_title">
                         <h1 class="mb16"><field name="name" placeholder="e.g. Office Space 1"/></h1>
@@ -36,7 +40,7 @@
                                     <group>
                                         <field name="name"/>
                                         <field name="capacity"/>
-                                        <field name="floor"/>
+                                        <field name="floor_id"/>
                                     </group>
                                     <group colspan="2">
                                         <field name="desks"/>
@@ -46,7 +50,7 @@
                                     </group>
                                 </group>
                                 <group>
-                                    <field name="booked"/>
+                                    <field name="status"/>
                                     <field name="daily_rate"/>
                                 </group>
                             </page>
@@ -78,12 +82,12 @@
             <kanban string="Office Space" quick-create="true">
             <field name="name" string="Space" />
             <field name="capacity"/>
-            <field name="floor"/>
+            <field name="floor_id"/>
             <field name="desks"/>
             <field name="computers"/>
             <field name="chairs"/>
             <field name="telephones"/>
-            <field name="booked"/>
+            <field name="status"/>
             <field name="daily_rate" />
             <templates>
                 <t t-name="kanban-box">
@@ -96,7 +100,7 @@
                             </div>
                             <div class="oe_kanban_card_body">
                                 <div><strong>Capacity: </strong><field name="capacity"/></div>
-                                <div><strong>Floor: </strong><field name="floor"/></div>
+                                <div><strong>Floor: </strong><field name="floor_id"/></div>
                                 <div><strong>Desks: </strong><field name="desks"/></div>
                                 <div><strong>Computers: </strong><field name="computers"/></div>
                                 <div><strong>Chairs: </strong><field name="chairs"/></div>
@@ -117,14 +121,14 @@
         <field name="arch" type="xml">
             <search string="Office Space Search">
                 <field name="name" string="Name" />
-                <field name="floor"/>
+                <field name="floor_id"/>
                 <field name="capacity"/>
-                <field name="booked"/>
+                <field name="status"/>
 
-                <filter string="Booked" name="booked" domain="[('booked', '=', True)]"/>
+                <filter string="Status" name="status" domain="[('status', '=', 'vacant')]"/>
                 <filter string="Projector" name="projector" domain="[('projector', '=', True)]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Booked" name="booked" context="{'group_by':'booked', 'residual_visible':True}"/>
+                    <!-- <filter string="Status" name="status" context="{'group_by':'status', 'residual_visible':True}"/> -->
                 </group>
             </search>
         </field>

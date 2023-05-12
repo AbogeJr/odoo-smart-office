@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="office_reservation_report">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="building">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h3 class="text-center">
+                        Office Space Reservation Report for <span t-field="building.name"/>
+                    </h3>
+                    <hr/>
+                    <div>
+                        <div class="flush-end">
+                            <p>
+                                <strong>Address: </strong>
+                                <span t-field="building.address"/>
+                            </p>
+                            <p>
+                                <strong>Floors: </strong>
+                                <span t-field="building.num_floors"/>
+                            </p>
+                        </div>
+                        <br/>
+                        <t t-set="floors" t-value="building.mapped('floors')"/>
+                        <t t-foreach="floors" t-as="floor">
+                            <hr/>
+                            <h5 t-field="floor.name"/>
+                            <t t-set="offices" t-value="floor.mapped('office_ids')" />
+                                <t t-foreach="offices" t-as="office">
+                                    <div class="page">
+                                    <h4>Reservation Report for <span t-field="office.name"/> </h4>
+                                    <h5>Office Space Details</h5>
+                                    <div>
+                                        <p>
+                                            <strong>Description: </strong>
+                                            <span t-field="office.description"/>
+                                        </p>
+                                        <p>
+                                            <strong>Floor: </strong>
+                                            <span t-field="office.floor_id"/>
+                                        </p>
+                                        <p>
+                                            <strong>Daily Rate: </strong>
+                                            <span t-field="office.daily_rate"/>
+                                        </p>
+                                    </div>
+                                    <hr/>
+                                    <h5>Ammenities</h5>
+                                    <div>
+                                        <p>
+                                            Desks:
+                                            <span t-field="office.desks"/>
+                                        </p>
+                                        <p>
+                                            Chairs:
+                                            <span t-field="office.chairs"/>
+                                        </p>
+                                        <p>
+                                            Telephones:
+                                            <span t-field="office.telephones"/>
+                                        </p>
+                                        <p>
+                                            Computers:
+                                            <span t-field="office.computers"/>
+                                        </p>
+                                        
+                                    </div><hr/>
+                                        <table class="table">
+                                        
+                                            <thead>
+                                                <h5 class="text-center">Reservations</h5>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>Reservation Name</th>
+                                                    <th>Customer</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Duration (Days)</th>
+                                                    <th>Revenue</th>
+                                                    <th>Approved</th>
+                                                </tr>
+                                                
+                                                <t t-set="totals" t-value="0"/>
+
+                                                <t t-set="reservations" t-value="office.mapped('reservation_ids')"/>
+                                                <tr t-foreach="reservations" t-as="reservation">
+                                                    <td>
+                                                        <span t-field="reservation.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="reservation.customer_id"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="reservation.start_date"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="reservation.end_date"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="reservation.days"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="reservation.cost"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="reservation.approved"/>
+                                                    </td>
+                                                    <t t-set="totals" t-value="totals+reservation.cost"/>   
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="border float-end p-2">
+                                            <p class="text-end inline-block">Total Revenue: <t t-esc="totals" t-options='{"widget": "float", "precision": 2}'/></p>
+                                        </div>
+                                        <br/>
+                                    </div>
+                                    <hr/>
+                                </t>
+                        </t>
+                    </div>
+                    <hr/>
+                </div>
+            </t>
+        </t>
+    </t>
+ </template>
+</odoo>
