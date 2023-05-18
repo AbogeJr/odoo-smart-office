@@ -18,18 +18,13 @@
         <field name="model">building.model</field>
         <field name="arch" type="xml">
             <form string="Building">
-                <group>
-                    <field name="name"/>
-                    <field name="address"/>
-                </group>
-                <notebook>
-                    <page string="Floors">
-                        <field name="floors" widget="many2many_tags"/>
-                    </page>
-                </notebook>
-                <group>
-                    <field name="num_floors"/>
-                </group>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="num_floors"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>

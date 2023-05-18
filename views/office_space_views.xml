@@ -25,14 +25,18 @@
         <field name="model">office.model</field>
         <field name="arch" type="xml">
             <form>
-                <!-- <header>
-                    <button name="toggle_booked" string="Toggle Booked" type="object" class="oe_highlight"/>
-                    <button name="toggle_projector" string="Toggle Projector" type="object" class="oe_highlight"/>
-                </header> -->
+                <!-- <header> -->
+                    <!-- <field name="status" widget="badge"/> -->
+                    <!-- <button name="toggle_booked" string="Toggle Booked" type="object" class="oe_highlight"/>
+                    <button name="toggle_projector" string="Toggle Projector" type="object" class="oe_highlight"/> -->
+                <!-- </header> -->
                 <sheet>
+                    <h3><field name="status" widget="statusbar"/></h3>
+
                     <div class="oe_title">
                         <h1 class="mb16"><field name="name" placeholder="e.g. Office Space 1"/></h1>
                         <h3><field name="description" placeholder="e.g. Elegant Office Space"/></h3>
+
                     </div>
                         <notebook>
                             <page string="Office Space Details">
@@ -50,8 +54,8 @@
                                     </group>
                                 </group>
                                 <group>
-                                    <field name="status"/>
                                     <field name="daily_rate"/>
+                                    <field name="status"/>
                                 </group>
                             </page>
                             <page string="Reservation Details">
@@ -87,7 +91,7 @@
             <field name="computers"/>
             <field name="chairs"/>
             <field name="telephones"/>
-            <field name="status"/>
+            <field name="status" widget="badge"/>
             <field name="daily_rate" />
             <templates>
                 <t t-name="kanban-box">
